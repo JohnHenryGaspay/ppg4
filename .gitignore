@@ -1,0 +1,50 @@
+# WordPress
+www/wp/
+*.log
+
+# Composer
+vendor/
+
+# Environment
+.env
+
+# Operating System
+.DS_Store
+Thumbs.db
+
+# Uploads
+app/uploads/*
+!app/uploads/.gitkeep
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Node modules (if any)
+node_modules/
+
+# Build files
+dist/
+build/
+
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Database backups (keep original)
+# mwp_db/*.sql
+
+# Cache
+.cache/
+tmp/
+
+# Old folders (after migration)
+themes/
+mu-plugins/
+main.txt
+main.css

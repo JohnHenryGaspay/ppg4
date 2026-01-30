@@ -1,0 +1,51 @@
+# Sensitive Files - Never Deploy to Live
+wp-config.php
+.env
+.env.local
+.env.live
+
+# Development Files
+debug.log
+error.log
+*.log
+
+# Version Control
+.git
+.gitignore
+
+# Dependencies (will be installed on live)
+vendor/
+node_modules/
+
+# IDE & OS Files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+
+# Temporary Files
+tmp/
+temp/
+cache/
+*.tmp
+
+# Build Files
+/build/
+/dist/
+
+# WordPress Generated
+wp-content/uploads/*
+wp-content/backup*
+
+# Local Development Database
+mwp_db/127.0.0.1-ppg_live.sql
+
+# Config Files (live-specific)
+.htaccess.live
+wp-config.live.php
+
+# ngrok
+ngrok.exe
+ngrok.zip
