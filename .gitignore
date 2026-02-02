@@ -37,7 +37,8 @@ build/
 *~
 
 # Database backups (keep original)
-# mwp_db/*.sql
+mwp_db/*.sql
+local-database-20260201-120207.sql
 
 # Cache
 .cache/

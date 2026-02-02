@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Buy Page Debug</title>
+</head>
+<body>
+    <h1>Property Map Debug</h1>
+    <div id="debug-info"></div>
+    <script>
+        // Check if property-map div exists
+        const mapDiv = document.getElementById('property-map');
+        const debugDiv = document.getElementById('debug-info');
+        
+        let html = '<ul>';
+        html += '<li>Property map div exists: ' + (mapDiv ? 'YES' : 'NO') + '</li>';
+        
+        if (mapDiv) {
+            const data = mapDiv.getAttribute('data-properties');
+            html += '<li>Data attribute exists: ' + (data ? 'YES' : 'NO') + '</li>';
+            if (data) {
+                try {
+                    const decoded = data.replace(/&quot;/g, '"');
+                    const parsed = JSON.parse(decoded);
+                    html += '<li>Properties count: ' + parsed.length + '</li>';
+                    if (parsed.length > 0) {
+                        html += '<li>First property ID: ' + parsed[0].id + '</li>';
+                        html += '<li>First property has location: ' + (parsed[0].location ? 'YES' : 'NO') + '</li>';
+                        if (parsed[0].location) {
+                            html += '<li>First property lat: ' + parsed[0].location.lat + '</li>';
+                            html += '<li>First property lng: ' + parsed[0].location.lng + '</li>';
+                        }
+                    }
+                } catch (e) {
+                    html += '<li>Error parsing JSON: ' + e.message + '</li>';
+                }
+            }
+        }
+        
+        // Check if React app loaded
+        html += '<li>React available: ' + (typeof React !== 'undefined' ? 'YES' : 'NO') + '</li>';
+        html += '<li>ReactDOM available: ' + (typeof ReactDOM !== 'undefined' ? 'YES' : 'NO') + '</li>';
+        html += '<li>Google Maps available: ' + (typeof google !== 'undefined' && typeof google.maps !== 'undefined' ? 'YES' : 'NO') + '</li>';
+        
+        // Check script tags
+        const scripts = document.querySelectorAll('script[src*="dist/js"]');
+        html += '<li>Script tags found: ' + scripts.length + '</li>';
+        scripts.forEach(s => {
+            html += '<li style="margin-left: 20px;">- ' + s.src + '</li>';
+        });
+        
+        html += '</ul>';
+        debugDiv.innerHTML = html;
+    </script>
+</body>
+</html>

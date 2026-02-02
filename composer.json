@@ -1,0 +1,35 @@
+{
+  "name": "pulse-property-group/website",
+  "description": "Pulse Property Group WordPress site",
+  "type": "project",
+  "license": "proprietary",
+  "authors": [
+    {
+      "name": "Pulse Property Group"
+    }
+  ],
+  "require": {
+    "php": ">=7.4",
+    "timber/timber": "^2.0",
+    "vlucas/phpdotenv": "^5.3",
+    "illuminate/support": "^8.0",
+    "nesbot/carbon": "^2.0"
+  },
+  "require-dev": {},
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "allow-plugins": {
+      "composer/installers": true
+    }
+  },
+  "autoload": {
+    "psr-4": {
+      "JuiceBox\\": "app/themes/pulse-property/src/"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": [],
+    "post-update-cmd": []
+  }
+}
